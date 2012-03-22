@@ -155,6 +155,9 @@ This.gemspec = Gem::Specification.new do |spec|
 
   # The Runtime Dependencies
   spec.add_runtime_dependency( 'maildir', '~> 2.0.0' )
+  spec.add_runtime_dependency( 'uuid' )
+  spec.add_runtime_dependency( 'hashr' )
+  spec.add_runtime_dependency( 'bunny' )
 
   # Additional functionality if used
   spec.add_development_dependency( 'kestrel-client'  , '~> 0.7.1' )
