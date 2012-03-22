@@ -29,7 +29,7 @@ Qup provides an abstract implementation of two common messaging patterns.
 **Publish/Subscribe**
 > [Wikipedia Article on Pub/Sub
 > pattern](http://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern).
-> 
+>
 > Qup implements a Topic based system, where Publishers send Messages on a Topic
 > and all Subscribers to that topic each receive their own copy of the message.
 
@@ -66,42 +66,42 @@ Or install it yourself as:
 
 **Basic Message Queue**
 
-  session  = Qup::Session.new( "maildir:///tmp/test-queue" )
-  queue    = session.queue( 'basic-messaging' )
-  producer = queue.producer
+    session  = Qup::Session.new( "maildir:///tmp/test-queue" )
+    queue    = session.queue( 'basic-messaging' )
+    producer = queue.producer
 
-  consumer_1 = queue.consumer
-  consumer_2 = queue.consumer
+    consumer_1 = queue.consumer
+    consumer_2 = queue.consumer
 
-  producer.produce( 'message_1' )
-  producer.produce( 'message_2' )
+    producer.produce( 'message_1' )
+    producer.produce( 'message_2' )
 
-  message_1 = consumer_1.consume
-  puts message_1.data                 # => 'message_1'
-  consumer_1.acknowledge( message_1 )
+    message_1 = consumer_1.consume
+    puts message_1.data                 # => 'message_1'
+    consumer_1.acknowledge( message_1 )
 
-  consumer_2.consume do |message_2|
-    puts message_2.data               # => 'message_2'
-  end  # auto acknowledged at the end of the block
+    consumer_2.consume do |message_2|
+      puts message_2.data               # => 'message_2'
+    end  # auto acknowledged at the end of the block
 
 **Publish/Subscribe**
 
-  session   = Qup::Session.new( "kestrel://messaging.example.com:22133" )
-  topic     = session.topic( 'topic-messaging' )
-  publisher = topic.publisher
+    session   = Qup::Session.new( "kestrel://messaging.example.com:22133" )
+    topic     = session.topic( 'topic-messaging' )
+    publisher = topic.publisher
 
-  subscribers = []
-  3.times do |n|
-    subscribers << topic.subscriber( "subscriber-#{n}" )
-  end
+    subscribers = []
+    3.times do |n|
+      subscribers << topic.subscriber( "subscriber-#{n}" )
+    end
 
-  publisher.publish( 'a fine message on a topic' )
+    publisher.publish( 'a fine message on a topic' )
 
-  subscribers.each do |sub|
-    sub.consume do |msg|
-      puts msg.data                   # => 'a fine message on a topic'
-    end                               # auto acknowledge an end of block
-  end
+    subscribers.each do |sub|
+      sub.consume do |msg|
+        puts msg.data                   # => 'a fine message on a topic'
+      end                               # auto acknowledge an end of block
+    end
 
 ## REQUIREMENTS
 
@@ -145,7 +145,7 @@ Or to run tests for specific adapters only, run:
 
 To run the Kestrel tests you will need:
 
-  gem install kestrel-client
+    gem install kestrel-client
 
 A Kestrel server running on `localhost:22133`
 
@@ -157,7 +157,7 @@ You can download Kestrel from http://robey.github.com/kestrel/ and then run the
 
 To run the Redis tests you will need:
 
-  gem install redis
+    gem install redis
 
 A Redis server running on `localhost:6479`
 
