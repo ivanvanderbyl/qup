@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require "rubygems"
+require 'optparse'
+require 'irb'
+require 'irb/completion'
+require "bundler"
+Bundler.setup
+
+$: << 'lib'
+
+require "qup"
+
+puts "Starting Qup interactive console"
+
+def new_session(url)
+  @session = Qup::Session.new(url)
+end
+
+IRB.start
