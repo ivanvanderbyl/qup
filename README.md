@@ -179,6 +179,21 @@ On OSX you can get RabbitMQ using Brew:
 
 And run it with `rabbitmq-server`
 
+### Development console
+
+For debugging adapters locally, you can spin up the development console by running:
+
+    ./bin/console
+
+It is simply an IRB session with Qup loaded.
+
+There is also a helper method for starting a new session:
+
+```ruby
+new_session('amqp://localhost:5672/demo')
+puts @session #=> #<Qup::Session:0x007f933372e4a8...
+```
+
 ## LICENSE
 
 (The ISC LICENSE)
