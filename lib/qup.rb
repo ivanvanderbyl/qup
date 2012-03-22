@@ -24,7 +24,8 @@ module Qup
     # require => gem
     'maildir' => 'maildir',
     'kestrel' => 'kestrel-client',
-    'redis'   => 'redis'
+    'redis'   => 'redis',
+    'amqp'    => 'amqp'
   }
 end
 
