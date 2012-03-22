@@ -141,6 +141,17 @@ To run the Redis tests you will need:
 You can download redis using brew, macports or your favorite linux package
 manager.
 
+=== AMQP
+
+To run AMQP tests you will need a message broker, Qup has been tested with the latest version of RabbitMQ.
+
+On OSX you can get it using Brew:
+
+    brew install rabbitmq
+
+And run it with `rabbitmq-server`
+
+
 == LICENSE
 
 (The ISC LICENSE)
