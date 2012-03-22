@@ -1,6 +1,32 @@
-# Qup
+# Qup (Queue Up)
 
-TODO: Write a gem description
+[copiousfreetime/qup](http://github.com/copiousfreetime/qup)
+
+Qup is a generalized API for Message Queue and Publish/Subscribe messaging
+patterns with the ability to plug in an appropriate messaging infrastructure
+based upon your needs.
+
+Qup ships with support for [Kestrel](https://github.com/robey/kestrel),
+[Redis](http://redis.io), and a filesystem infrastructure based on
+[Maildir](https://rubygems.org/gems/maildir). Additional Adapters will be
+developed as needs arise. [Please submit an
+Issue](https://github.com/copiousfreetime/qup/issues) to have a new Adapter
+created. Pull requests gladly accepted.
+
+## Features
+
+Qup provides an abstract implementation of two common messaging patterns.
+
+**Basic Message Queue**
+
+> Examples of a basic message queue are [Work/Task
+> Queues](http://www.rabbitmq.com/tutorials/tutorial-two-python.html), [JMS
+> Queue](http://docs.oracle.com/javaee/6/api/javax/jms/Queue.html), or [Amazon
+> SQS](http://aws.amazon.com/sqs/). This is a pattern where one or more
+> Producers puts Messages on a Queue and one or more Consumers received those
+> Messages. Each Message is delivered only 1 time to a Consumer.
+
+
 
 ## Installation
 
