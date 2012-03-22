@@ -134,14 +134,14 @@ To get started with developing additional adapters, clone this repository, then 
 
 To run the test suite:
 
-    rake test
+    rake spec
 
-Or to run tests for specific adapters only, run:
+Or to test specific adapters only, run:
 
-    rake test:amqp
-    rake test:kestrel
-    rake test:redis
-    rake test:maildir
+    rake spec:amqp
+    rake spec:kestrel
+    rake spec:maildir
+    rake spec:redis
 
 ### Installing dependencies
 
