@@ -1,6 +1,7 @@
 require 'qup/adapter'
 require 'amqp'
 require 'amqp/utilities/event_loop_helper'
+require 'multi_json'
 
 class Qup::Adapter
   # Internal: The backing adapter for Qup that uses AMQP message broker
@@ -25,7 +26,7 @@ class Qup::Adapter
     #
     # Returns a Qup::Queue
     def queue( name )
-      Qup::Adapter::Amqp::Queue.new( @uri, name )
+      Qup::Adapter::Amqp::Queue.new( name, connection )
     end
 
     # Internal: Create a new Topic from this Adapter
@@ -34,7 +35,7 @@ class Qup::Adapter
     #
     # Returns a Qup::Topic
     def topic( name )
-      Qup::Adapter::Amqp::Topic.new( @uri, name )
+      Qup::Adapter::Amqp::Topic.new( name, connection )
     end
 
     # Internal: Close the Amqp adapter
@@ -53,6 +54,8 @@ class Qup::Adapter
 
     private
 
+    # Converts the url amqp://localhost:5672/test into the Hash:
+    # {scheme: 'amqp', host: 'localhost', port: 5672, vhost: 'test'}
     def amqp_config(url)
       url = url.to_s unless url.is_a?(String)
       AMQP::Client.parse_connection_uri(url)
